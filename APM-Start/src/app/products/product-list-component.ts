@@ -90,4 +90,7 @@ export class ProductListComponent implements OnInit {
     return this.products.filter(product => product.productName.toLowerCase().indexOf(productFilter.toLocaleLowerCase()) !== -1);
   }
 
+  onNotify(message: string): void {
+    console.log(message);
+  }
 }
