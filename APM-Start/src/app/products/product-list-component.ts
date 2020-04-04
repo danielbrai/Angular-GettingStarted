@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
-  selector: 'pm-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   providers: [ProductService]

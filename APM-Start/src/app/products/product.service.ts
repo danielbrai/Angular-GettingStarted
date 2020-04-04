@@ -5,16 +5,18 @@ import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  private productURL: 'api/products/products.json';
+  private productURL: string;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.productURL = 'api/products/products.json';
+  }
 
   getProducts(): Observable<IProduct[]> {
-    const products = this.httpClient.get<IProduct[]>('api/products/products.json').pipe(
-      tap(data => console.log('All: ', JSON.stringify(data))),
+    const products = this.httpClient.get<IProduct[]>(this.productURL).pipe(
+      tap((data) => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
 
